@@ -97,6 +97,23 @@ cd ~/llama.cpp
   --port 8080
 ```
 
+### MTP Speculative Decoding (3-token draft) with NGRAM
+
+```bash
+./build/bin/llama-server \
+  -m ~/llama.cpp/models/Qwen3.6-27B-MTP-Q8_0.gguf \
+  -ngl 999 \
+  -c 16384 \
+  --flash-attn on \
+  --no-mmproj \
+  --spec-type draft-mtp \
+  --spec-draft-n-max 3 \
+  --spec-type ngram-mod \
+  --host 0.0.0.0 \
+  --port 8080
+```
+
+
 > MTP uses the model's built-in draft heads — no separate draft model needed.
 
 ---
